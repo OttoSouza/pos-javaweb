@@ -1,8 +1,8 @@
 package dev.fujioka.java.avancado.web.web.rest;
 
 import dev.fujioka.java.avancado.web.domain.Product;
-import dev.fujioka.java.avancado.web.repository.ProductRepository;
 import dev.fujioka.java.avancado.web.service.ProductService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
