@@ -2,16 +2,14 @@ package dev.fujioka.java.avancado.web.otto.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 import java.util.Date;
 
-
+/** This's a class named Persons with some hypothetical attributes  @author ottomint*/
 @Entity
 @Table(name = "Persons")
 @EntityListeners(AuditingEntityListener.class)

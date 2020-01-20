@@ -2,12 +2,13 @@ package dev.fujioka.java.avancado.web.otto.model;
 
 import java.util.Date;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-
+/** This's a class named Professor with some hypothetical attributes  @author ottomint*/
 import org.springframework.data.annotation.CreatedDate;
 @Entity
 public class Professor {

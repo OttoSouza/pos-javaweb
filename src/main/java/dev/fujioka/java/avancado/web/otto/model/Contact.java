@@ -12,6 +12,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.CreatedDate;
+/** This's a class named Contact with some hypothetical attributes  @author ottomint*/
 @Entity
 public class Contact {
 	@Id

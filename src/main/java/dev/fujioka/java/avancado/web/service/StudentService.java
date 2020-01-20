@@ -15,13 +15,13 @@ public class StudentService implements CrudInterface<Student> {
 
 	@Override
 	public List<Student> findAll() {
-
 		return studentRepository.findAll();
 
 	}
 
 	@Override
 	public Optional<Student> save(Student entity) {
+		entity.setAverage(average(entity.getFirstSemester() , entity.getSecondSemester() , entity.getThirdSemester()));
 		return Optional.of(studentRepository.save(entity));
 	}
 
@@ -44,4 +44,9 @@ public class StudentService implements CrudInterface<Student> {
 	public long count() {
 		return studentRepository.count();
 	}
+	
+	private Float average(float n1, float n2, float n3 ) {
+		return (n1 + n2 + n3) / 3;
+	}
+	
 }

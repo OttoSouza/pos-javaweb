@@ -6,31 +6,43 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
+import org.springframework.lang.Nullable;
+
+/** This's a class named Student with some hypothetical attributes  @author ottomint*/
 @Entity
 @Table(name = "Student")
 public class Student {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@NotBlank
 	private String name;
+	
 	@NotBlank
 	private String course;
-	@NotNull
-	private int firstSemester;
-	@NotNull
-	private int secondSemester;
-	@NotNull
-	private int thirdSemester;
-	@NotNull
-	private int average = studentAvarage();
+	
+	
+	@Nullable
+	private Float firstSemester;
+	
+	@Nullable
+	private Float secondSemester;
+	
+	@Nullable
+	private Float thirdSemester;
+	
+	@Nullable
+	private Float average ;
 
-	public Long getId() {
-		return id;
+	
+	public Student() {
+		super();
 	}
+
 
 	public String getName() {
 		return name;
@@ -39,44 +51,44 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public String getCourse() {
 		return course;
 	}
-
+	
 	public void setCourse(String course) {
 		this.course = course;
 	}
-
-	public int getFirstSemester() {
+	
+	public Float getFirstSemester() {
 		return firstSemester;
 	}
-
-	public void setFirstSemester(int firstSemester) {
+	
+	public void setFirstSemester(Float firstSemester) {
 		this.firstSemester = firstSemester;
 	}
-
-	public int getSecondSemester() {
+	
+	public Float getSecondSemester() {
 		return secondSemester;
 	}
-
-	public void setSecondSemester(int secondSemester) {
+	
+	public void setSecondSemester(Float secondSemester) {
 		this.secondSemester = secondSemester;
 	}
 
-	public int getThirdSemester() {
+	public Float getThirdSemester() {
 		return thirdSemester;
 	}
-
-	public void setThirdSemester(int thirdSemester) {
+	
+	public void setThirdSemester(Float thirdSemester) {
 		this.thirdSemester = thirdSemester;
 	}
-
-	public int getAverage() {
+	
+	public Float getAverage() {
 		return average;
 	}
-
-	public void setAverage(int average) {
+	
+	public void setAverage(Float average) {
 		this.average = average;
 	}
 
@@ -84,9 +96,7 @@ public class Student {
 		this.id = id;
 	}
 	
-	public int studentAvarage() {
-		int avarageStudent = (firstSemester + secondSemester + thirdSemester) / 3;
-		return avarageStudent;
+	public Long getId() {
+		return id;
 	}
-
 }

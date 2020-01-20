@@ -5,11 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+
+/** This's a class named Address with some hypothetical attributes  @author ottomint*/
 @Entity
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@NotBlank
 	private String streat;
 	@NotBlank
@@ -27,6 +30,7 @@ public class Address {
 		this.id = id;
 	}
 
+	
 	public String getStreat() {
 		return streat;
 	}

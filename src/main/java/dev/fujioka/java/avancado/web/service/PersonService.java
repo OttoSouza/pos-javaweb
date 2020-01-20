@@ -18,7 +18,6 @@ public class PersonService implements CrudInterface<Person> {
 
     @Override
     public List<Person> findAll() {
-    	
         return personRepository.findAll();
         
     }

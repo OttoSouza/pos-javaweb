@@ -20,7 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import dev.fujioka.java.avancado.web.exception.EntityNotFoundException;
 import dev.fujioka.java.avancado.web.otto.model.Student;
 import dev.fujioka.java.avancado.web.service.StudentService;
-
+/**
+ * This class is the Student controller with the basics endpoints: crud;
+ * 
+ * 
+ * @author ottomint*/
 @RestController
 @RequestMapping("/api")
 public class StudentResource {
@@ -28,23 +32,36 @@ public class StudentResource {
 	@Autowired
 	private StudentService studentService;
 	
+	/**
+	 * This endpoint returns  all registered students.
+	 */
 	@GetMapping("/student")
 	public List<Student> getStudents(){
 		return studentService.findAll();
 	}
 	
+	/**
+	 * This endpoint gets an identifier called 'id', after that returns its values.
+	  @param id*/
 	@GetMapping("student/{id}")
 	public Student getStudentById(Long id) {
 		return studentService.findById(id).orElseThrow(() -> new EntityNotFoundException("Student", "id", id.toString()));
 	}
 	
-	@PostMapping("/student")
+	/**
+	 * This endpoint gets all students values and save.
+	 */
+	@PostMapping("/student")	
 	public ResponseEntity<Student> save(@Valid @RequestBody Student student){
+		
 		studentService.save(student);
 		return ResponseEntity.ok().body(student);
 	}
 	
-	@PutMapping("/student/{id}")
+	/**
+	 * This endpoint gets an identifier called 'id', after that it will be checked. If it exists can make changes, if no error message will be displayed. 
+	  @param id, student*/
+	@PutMapping("/student/{id}")	
 	public ResponseEntity<Student> update(@PathVariable(value = "id")Long id, @Valid @RequestBody Student student){
 		Student studentUpdate = studentService.findById(id).orElseThrow(() -> new EntityNotFoundException("Student", "id", id.toString()));
 		studentUpdate.setName(student.getName());
@@ -52,17 +69,18 @@ public class StudentResource {
 		studentUpdate.setFirstSemester(student.getFirstSemester());
 		studentUpdate.setSecondSemester(student.getSecondSemester());
 		studentUpdate.setThirdSemester(student.getThirdSemester());
-		studentUpdate.setAverage(student.getAverage());
-		
+				
 		studentService.save(studentUpdate);
 		return ResponseEntity.ok().body(studentUpdate);
 	}
-	@DeleteMapping("/student/{id}")
+	/**
+	 * This endpoint gets an identifier called 'id', after that it will be checked. If it exists can delete, if no error message will be displayed. 
+	  @param id*/
+	@DeleteMapping("/student/{id}")	
 	 public ResponseEntity<Student> delete(@PathVariable(value = "id") Long id) {
 		Student studentDelete = studentService.findById(id).orElseThrow(() -> new EntityNotFoundException("Student", "id", id.toString()));
 		studentService.delete(studentDelete);
 		return ResponseEntity.ok().build();
-		
 	}
 	
 }

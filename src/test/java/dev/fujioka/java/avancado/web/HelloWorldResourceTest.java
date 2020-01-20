@@ -1,29 +1,32 @@
 package dev.fujioka.java.avancado.web;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class HelloWorldResourceTest {
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     void tearDown() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void primeiroEndPointGetHello() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void primeiroEndPointDeleteHello() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void primeiroEndPointPutHello() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void primeiroEndPointPostHello() {
     }
 }
