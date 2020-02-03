@@ -9,15 +9,22 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import dev.fujioka.java.avancado.web.otto.model.Person;
 import dev.fujioka.java.avancado.web.service.PersonService;
 
 @Controller
+@RequestMapping("/")
 public class PersonController {
 	@Autowired
 	private PersonService personService;
+	
+	@GetMapping("/")
+	public String showHome() {
+		return "index";
+	}
+	
 	
 	@GetMapping("/personform")
 	public String showForm(Person person) {
@@ -34,7 +41,7 @@ public class PersonController {
 
 		personService.save(person);
 		model.addAttribute("persons", personService.findAll());
-		return "index";
+		return "list-persons";
 	}
 
 	@GetMapping("/delete/{id}")
@@ -42,8 +49,8 @@ public class PersonController {
 		Person person = personService.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid person Id:" + id));
 		personService.delete(person);
-		model.addAttribute("person", personService.findAll());
-		return "index";
+		model.addAttribute("persons", personService.findAll());
+		return "list-persons";
 	}
 
 	@PostMapping("/addperson")
@@ -54,11 +61,11 @@ public class PersonController {
 
 		personService.save(person);
 		model.addAttribute("persons", personService.findAll());
-		return "index";
+		return "list-persons";
 	}
 
 	@GetMapping("/edit/{id}")
-	public String showUpdateForm(@PathVariable("id") long id, Model model) {
+	public String showUpdateForm(@PathVariable("id") Long id, Model model) {
 		Person person = personService.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid Person Id:" + id));
 

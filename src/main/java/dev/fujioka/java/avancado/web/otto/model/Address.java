@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 @Entity
 public class Address {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotBlank
@@ -30,7 +30,6 @@ public class Address {
 		this.id = id;
 	}
 
-	
 	public String getStreat() {
 		return streat;
 	}

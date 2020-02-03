@@ -11,6 +11,7 @@ import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import dev.fujioka.java.avancado.web.exception.EntityNotFoundException;
@@ -39,13 +40,13 @@ public class AddressServiceTest {
 	}
 	@Test
 	public void findByIdTest() throws EntityNotFoundException {
-		Optional<Address> addressTest = addressServiceTest.findById(2L);
+		Optional<Address> addressTest = addressServiceTest.findById(3L);
 		assertTrue(addressTest.isPresent());
 	}
 	@Test
 	public void deleteByIdTest() throws EntityNotFoundException {
-		addressServiceTest.deleteById(2L);
-		Optional<Address> addressTest = addressServiceTest.findById(2L);
+		addressServiceTest.deleteById(3l);
+		Optional<Address> addressTest = addressServiceTest.findById(3L);
 		assertFalse(addressTest.isPresent());
 	}
 	

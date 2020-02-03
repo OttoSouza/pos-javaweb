@@ -63,8 +63,8 @@ public class StudentServiceTest {
 	public void updateTest() throws EntityNotFoundException {
 		Optional<Student> studentTest = studentService.findById(36L);
 		assertTrue(studentTest.isPresent()); 
-		studentTest.get().setName("Naruto");
-		studentTest.get().setCourse("Hokage");
+		studentTest.get().setName("Joao");
+		studentTest.get().setCourse("Pereira");
 		studentTest.get().setFirstSemester(7F);
 		studentTest.get().setSecondSemester(7F);
 		studentTest.get().setThirdSemester(7F);
