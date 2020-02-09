@@ -34,6 +34,7 @@ public class AddressServiceTest {
 		assertNotNull(addressServiceTest.save(addressTest));
 	}
 	
+	
 	@Test
 	public void getAllTest() throws EntityNotFoundException {
 		addressServiceTest.findAll();
@@ -46,6 +47,7 @@ public class AddressServiceTest {
 	@Test
 	public void deleteByIdTest() throws EntityNotFoundException {
 		addressServiceTest.deleteById(3l);
+		
 		Optional<Address> addressTest = addressServiceTest.findById(3L);
 		assertFalse(addressTest.isPresent());
 	}

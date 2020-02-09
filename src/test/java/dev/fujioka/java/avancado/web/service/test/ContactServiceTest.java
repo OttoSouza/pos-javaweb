@@ -35,6 +35,7 @@ public class ContactServiceTest {
 		
 		assertNotNull(contactService.save(contactTest));
 	}
+	
 	@Test
 	public void getAllTest() throws EntityNotFoundException {
 		contactService.findAll();
